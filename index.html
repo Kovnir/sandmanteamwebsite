@@ -75,7 +75,7 @@
             margin-bottom: 50px;
             overflow: hidden;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-in-out 0.4s forwards; /* Старт с задержкой 0.4s */
+            animation: fadeInUp 0.8s ease-in-out 0.4s forwards;
         }
         .tagline span {
             display: inline-block;
@@ -95,7 +95,7 @@
             justify-content: center;
             gap: 25px;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-in-out 0.8s forwards; /* Старт с задержкой 0.8s */
+            animation: fadeInUp 0.8s ease-in-out 1.0s forwards;
         }
         .social-icons a {
             color: #fff;
@@ -158,7 +158,8 @@
         // Text animation
         const text = "WE MAKE GAMES";
         const tagline = document.getElementById('tagline');
-        let delay = 0.4; // start delay
+        let delay = 0.5; // start delay
+		const d = 0.05;
 
         text.split('').forEach((char, index) => {
             if (index === 8) { // start of work "GAMES"
@@ -169,7 +170,7 @@
                 gamesText.split('').forEach((gameChar, i) => {
                     const span = document.createElement('span');
                     span.textContent = gameChar;
-                    span.style.animationDelay = `${delay + i * 0.1}s`;
+                    span.style.animationDelay = `${delay + i * d}s`;
                     link.appendChild(span);
                 });
                 tagline.appendChild(link);
@@ -178,8 +179,8 @@
                 span.textContent = char === ' ' ? '\u00A0' : char;
                 span.style.animationDelay = `${delay}s`;
                 tagline.appendChild(span);
+				delay += d;
             }
-            if (index < 8) delay += 0.1; // encreasing delay for "GAMES"
         });
     </script>
 </body>
